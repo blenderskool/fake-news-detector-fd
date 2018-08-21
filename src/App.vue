@@ -33,20 +33,32 @@
     color: #EE7321;
   }
 
-  .final-cta {
+  h1, h2, h3 {
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2.3rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .final {
     text-align: center;
     padding: 20% 0;
   }
-  .final-cta .title {
+  .final h2 {
     font-weight: 700;
     font-size: 1.8rem;
   }
-  .final-cta .subtitle {
+  .final h3 {
     color: #A4A7AC;
     font-size: 1.4rem;
     font-weight: 600;
   }
-  .final-cta button {
+  .final button {
     margin-top: 20px;
   }
 
@@ -65,7 +77,7 @@
   }
 
   @media screen and (min-width: 650px) {
-    .final-cta {
+    .final {
       padding: 8% 0;
     }
 
@@ -73,5 +85,16 @@
       background-size: 18%;
     }
   }
+
+  .hero .logo {
+    margin-bottom: 20%;
+  }
+
+  @media screen and (min-width: 950px) {
+    .hero .logo {
+      margin-bottom: 8%;
+    }
+  }
+
 
 </style>
