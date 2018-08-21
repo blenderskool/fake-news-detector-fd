@@ -1,13 +1,7 @@
 <template>
   <div class="home">
     <hero>
-      <header>
-        <h1 class="logo">
-          News Detector
-        </h1>
-        
-        <navigation />
-      </header>
+      <Header />
       <inp placeholder="Enter news title" />
       <br>
       <btn class="check-news">Check news</btn>
@@ -34,9 +28,9 @@
       </card>
     </section>
 
-    <section class="pattern final-cta">
-      <h2 class="title">Report fake news</h2>
-      <h3 class="subtitle">Help us in collecting false news</h3>
+    <section class="pattern final">
+      <h2>Report fake news</h2>
+      <h3>Help us in collecting false news</h3>
 
       <btn>Start Reporting</btn>
     </section>
@@ -44,7 +38,7 @@
 </template>
 
 <script>
-import navigation from '@/components/Navigation'
+import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import card from '@/components/Card'
 import inp from '@/components/Input'
@@ -53,7 +47,7 @@ import btn from '@/components/Button'
 export default {
   name: 'home',
   components: {
-    navigation,
+    Header,
     hero,
     card,
     inp,
@@ -62,26 +56,9 @@ export default {
 }
 </script>
 
-
-<style>
-  .logo {
-    font-size: 2.3rem;
-    color: #ffffff;
-  }
-
-  h1, h2, h3 {
-    margin: 0;
-  }
-
-</style>
-
 <style scoped>
   .check-news {
     margin-top: 8%;
-  }
-
-  .hero .logo {
-    margin-bottom: 20%;
   }
 
   section.cards {
@@ -97,12 +74,7 @@ export default {
   section.cards .card {
     margin: 15px;
 
-    color: #2F353E;
     font-size: 1.13rem;
-  }
-
-  nav {
-    display: none;
   }
 
   @media screen and (min-width: 650px) {
@@ -114,16 +86,9 @@ export default {
     section.cards .card {
       width: 50%;
     }
-
-    nav {
-      display: block;
-    }
   }
 
   @media screen and (min-width: 950px) {
-    .hero .logo {
-      margin-bottom: 8%;
-    }
 
     section.cards {
       padding: 0 100px;
@@ -132,6 +97,7 @@ export default {
     .check-news {
       margin-top: 3%;
     }
+
   }
 
 </style>
