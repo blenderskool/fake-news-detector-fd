@@ -1,8 +1,7 @@
 <template>
-  <div class="hero pattern">
+  <div class="hero pattern" :class="{'less-spacing': $route.path != '/'}">
     <slot />
 
-    <!-- <svg class="divider" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 291.75 1280 90.25" width="100%"><path d=" M 0 291.75 L 640 329.75 L 1280 291.75 L 1280 382 L 0 382 L 0 291.75 Z " fill="rgb(255,255,255)"/></svg> -->
     <div class="divider">
       <span class="tri1" />
       <span class="tri2" />
@@ -24,9 +23,15 @@ export default {
     padding: 12% 0 30%;
     text-align: center;
     z-index: 0;
+    color: #ffffff;
   }
   .hero::before {
     opacity: 0.25;
+  }
+
+  .hero.less-spacing {
+    padding-top: 5%;
+    padding-bottom: 40%;
   }
 
   .divider {
@@ -60,6 +65,10 @@ export default {
   @media screen and (min-width: 950px) {
     .hero {
       padding: 8% 0 20%;
+    }
+
+    .hero.less-spacing {
+      padding: 4% 0 22%;
     }
   }
 
