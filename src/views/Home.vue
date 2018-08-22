@@ -2,9 +2,17 @@
   <div class="home">
     <hero>
       <Header />
-      <inp placeholder="Enter news title" />
-      <br>
-      <btn class="check-news">Check news</btn>
+      <form @submit.prevent="checkNews">
+        <inp
+          placeholder="Enter news title"
+          v-model="newsTitle"
+          required
+        />
+        <br>
+        <btn class="check-news" type="submit">
+          Check news
+        </btn>
+      </form>
     </hero>
   
     <section class="cards">
@@ -52,6 +60,21 @@ export default {
     card,
     inp,
     btn
+  },
+  data() {
+    return {
+      newsTitle: ''
+    }
+  },
+  methods: {
+    checkNews() {
+      this.$router.push({
+        path: 'news',
+        query: {
+          title: this.newsTitle
+        }
+      });
+    }
   }
 }
 </script>
