@@ -1,8 +1,10 @@
 <template>
   <header>
-    <h1 class="logo">
-      News Detector
-    </h1>
+    <router-link to="/">
+      <h1 class="logo">
+        News Detector
+      </h1>
+    </router-link>
     
     <navigation />
   </header>
@@ -33,6 +35,11 @@ export default {
     nav {
       display: block;
     }
+  }
+
+  a {
+    margin-top: 0;
+    padding-top: 0;
   }
 
 </style>
