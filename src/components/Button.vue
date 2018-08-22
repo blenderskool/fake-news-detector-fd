@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'btn'
+  name: 'Button'
 }
 </script>
 
