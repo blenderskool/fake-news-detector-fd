@@ -3,13 +3,33 @@
     type="text"
     :placeholder="placeholder"
     :aria-placeholder="placeholder"
+    v-model="input"
+    :required="required"
   >
 </template>
 
 <script>
 export default {
-  name: 'inp',
-  props: ['placeholder']
+  name: 'Input',
+  props: {
+    placeholder: String,
+    value: String,
+    required: Boolean
+  },
+  data() {
+    return {
+      input: ''
+    }
+  },
+  watch: {
+    input() {
+      if (this.value !== this.input)
+        return this.$emit('input', this.input);
+    }
+  },
+  created() {
+    this.input = this.value;
+  }
 }
 </script>
 
