@@ -36,7 +36,7 @@
       </card>
     </section>
 
-    <section class="pattern final">
+    <section class="pattern final" v-show="false">
       <h2>Report fake news</h2>
       <h3>Help us in collecting false news</h3>
 
