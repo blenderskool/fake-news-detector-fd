@@ -27,6 +27,7 @@ export default {
   }
   .hero::before {
     opacity: 0.25;
+    background-attachment: fixed;
   }
 
   .hero.less-spacing {
