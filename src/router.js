@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home'
 import About from './views/About'
+import CheckNews from './views/CheckNews'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/news',
+      name: 'news-status',
+      component: CheckNews
     }
   ]
 })
