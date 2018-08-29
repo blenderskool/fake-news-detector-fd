@@ -91,11 +91,23 @@ export default {
       });
     }
   },
+  beforeCreate() {
+    /**
+     * Fail check if the news title is not provided
+     */
+    if (!this.$route.query.title)
+      this.$router.push('/');
+  },
   created() {
     const title = this.$route.query.title;
 
     this.newsTitle = title;
     document.title = `${title} | News Detector`;
+
+    /**
+     * TODO: API call for getting news status
+     */
+
   }
 }
 </script>
