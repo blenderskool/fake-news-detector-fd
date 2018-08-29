@@ -3,7 +3,8 @@
     <hero>
       <Header />
       <form @submit.prevent="checkNews">
-        <inp
+        <input
+          type="text"
           placeholder="Enter news title"
           v-model="newsTitle"
           required
@@ -49,7 +50,6 @@
 import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import card from '@/components/Card'
-import inp from '@/components/Input'
 import btn from '@/components/Button'
 
 export default {
@@ -58,7 +58,6 @@ export default {
     Header,
     hero,
     card,
-    inp,
     btn
   },
   data() {
@@ -98,6 +97,12 @@ export default {
     margin: 15px;
 
     font-size: 1.13rem;
+  }
+  section.cards .card .title {
+    font-size: 1.45rem;
+    color: #2F353E;
+    font-weight: 700;
+    margin-bottom: 15px;
   }
 
   @media screen and (min-width: 650px) {

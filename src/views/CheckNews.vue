@@ -3,7 +3,8 @@
     <hero>
       <Header />
       <form @submit.prevent="checkNews">
-        <inp
+        <input
+          type="text"
           placeholder="Enter news title"
           v-model="newsTitle"
           required
@@ -62,7 +63,6 @@
 <script>
 import Header from '@/components/Header'
 import hero from '@/components/Hero'
-import inp from '@/components/Input'
 import btn from '@/components/Button'
 import card from '@/components/Card'
 import badge from '@/components/Badge'
@@ -72,7 +72,6 @@ export default {
   components: {
     Header,
     hero,
-    inp,
     btn,
     card,
     badge
