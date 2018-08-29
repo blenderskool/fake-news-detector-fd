@@ -1,7 +1,9 @@
 <template>
-  <div class="card">
-    <slot />
-  </div>
+  <transition name="slide" appear>
+    <div class="card">
+      <slot />
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -19,10 +21,16 @@ export default {
     background-color: #ffffff;
   }
 
-  .card .title {
-    font-size: 1.35rem;
-    color: #2F353E;
-    font-weight: 700;
-    margin-bottom: 15px;
+  .slide-enter-active {
+    transition: all 0.5s ease;
   }
+  .slide-enter {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .slide-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
 </style>
