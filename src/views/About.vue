@@ -46,6 +46,9 @@ export default {
     hero,
     Header,
     'card-profile': CardProfile
+  },
+  created() {
+    document.title = 'About | News Detector'
   }
 }
 </script>

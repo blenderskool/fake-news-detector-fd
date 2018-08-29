@@ -96,9 +96,6 @@ export default {
 
     this.newsTitle = title;
     document.title = `${title} | News Detector`;
-  },
-  destroyed() {
-    document.title = 'News Detector';
   }
 }
 </script>

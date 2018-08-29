@@ -74,6 +74,9 @@ export default {
         }
       });
     }
+  },
+  created() {
+    document.title = 'News Detector';
   }
 }
 </script>
