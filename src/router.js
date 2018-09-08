@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home'
 import About from './views/About'
 import CheckNews from './views/CheckNews'
+import NotFound from './views/NotFound'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/news',
       name: 'news-status',
       component: CheckNews
+    },
+    {
+      path: '*',
+      name: '404',
+      component: NotFound
     }
   ]
 })
