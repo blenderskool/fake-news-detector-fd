@@ -15,45 +15,47 @@
 
     <section class="info">
       <card>
-        <div class="details">
-          <h2>{{ $route.query.title }}</h2>
-          <p>
-            Jerry Thompson, an American astronaut who was in orbit this week, claims to have matched with an extraterrestrial on Tinder.
-          </p>
-          <p>
-            “It’s lonely out in space,” said Thompson in a recent press conference. “I miss the earth so much. I miss my wife. So yeah, sometimes I’ll go on Tinder just to see what’s out there. I always get the message ‘there’s no one new around you,’ but then I saw her.
-          </p>
+        <div class="loading" v-if="loading">
+          <span class="loader" />
+          <div>Loading</div>
+        </div>
+        <template v-else>
+          <div class="details" v-if="news.status !== 'unsure'">
+            <h2>{{ news.title }}</h2>
+            <p>{{ news.snippet }}</p>
 
-          <div class="similar">
-            <h2>Similar fake news</h2>
+            <div class="similar" v-if="related.length">
+              <h2>Similar {{ news.status }} news</h2>
 
-            <ul>
-              <li>
-                <h3>Alien sees human in mirror</h3>
-                <p>
-                  Recent study shows that aliens see themselves as humans in front of a mirror.
-                </p>
-              </li>
-              <li>
-                <h3>Tinder has more aliens than humans</h3>
-                <p>
-                  Tinder recently reported that there are more monthly active aliens
-                </p>
-              </li>
+              <ul>
+                <li v-for="news in related" :key="news.matchedTitle">
+                  <h3>{{ news.matchedTitle }}</h3>
+                  <p>{{ news.snippet }}</p>
+                </li>
+              </ul>
 
-            </ul>
-
+            </div>
           </div>
-        </div>
-        <div class="meta">
-          <badge type="fake" />
+          <div class="meta" v-if="news.status !== 'unsure'">
+            <badge :type="news.status" :percentage="news.percentage" />
 
-          <h3>Found on</h3>
-          <ul>
-            <li><a href="#" target="_blank">theonion.com</a></li>
-            <li><b>14/20</b> people reported</li>
-          </ul>
-        </div>
+            <h3>Found on</h3>
+            <ul>
+              <li v-for="(source, i) in news.sources" :key="i">
+                <a :href="source.link" v-if="source.link" target="_blank">
+                  {{ source.text }}
+                </a>
+                <span v-else>
+                  {{ source.text }}
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="not-found" v-else>
+            <h2>News not found</h2>
+            <p>Try out some other news</p>
+          </div>
+        </template>
       </card>
     </section>
 
@@ -61,6 +63,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import btn from '@/components/Button'
@@ -78,7 +82,16 @@ export default {
   },
   data() {
     return {
-      newsTitle: ''
+      newsTitle: '',
+      news: {
+        title: '',
+        status: 'fake',
+        snippet: '',
+        sources: [],
+        percentage: 0
+      },
+      related: [],
+      loading: true
     }
   },
   methods: {
@@ -89,6 +102,66 @@ export default {
           title: this.newsTitle
         }
       });
+    },
+    getDetails() {
+      const title = this.$route.query.title;
+
+      this.newsTitle = title;
+      document.title = `${title} | News Detector`;
+      /**
+       * Prepare the loading state
+       */
+      this.loading = true;
+
+      /**
+       * API call for getting news status
+       */
+      axios.get(`https://fake-news-checker.herokuapp.com/api/v1/check/${title}`)
+      .then(res => {
+        const data = res.data;
+        const news = data.news;
+        this.loading = false;
+
+        /**
+         * If the status is unsure, then the news article wasn't found
+         */
+        this.news.status = data.status;
+        if (data.status === 'unsure') return;
+
+        this.news.title = news.matchedTitle;
+        document.title = `${news.matchedTitle} | News Detector`;
+
+        this.news.snippet = news.snippet;
+        this.news.percentage = news.percentage;
+
+        /**
+         * RegExp to get the domain of the site excluding the routes
+         */
+        const regexp = /^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)/img;
+        this.news.sources = [
+          {
+            text: regexp.exec(news.source)[1],
+            link: news.source
+          }
+        ];
+
+        /**
+         * Use the first 2 related articles
+         */
+        this.related = data.relatedNews.slice(0, 2);
+
+      })
+      .catch(err => {
+        console.log(`Error: ${err}`);
+
+        this.loading = false;
+      });
+
+    }
+  },
+  watch: {
+    '$route.query.title': function() {
+      this.getDetails();
     }
   },
   beforeCreate() {
@@ -99,15 +172,7 @@ export default {
       this.$router.push('/');
   },
   created() {
-    const title = this.$route.query.title;
-
-    this.newsTitle = title;
-    document.title = `${title} | News Detector`;
-
-    /**
-     * TODO: API call for getting news status
-     */
-
+    this.getDetails();
   }
 }
 </script>
@@ -115,7 +180,7 @@ export default {
 <style scoped>
 
   input {
-    width: calc(75% - 150px);
+    width: calc(75% - 160px);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -138,6 +203,13 @@ export default {
     display: flex;
     flex-direction: column-reverse;
   }
+  section.info .card .details p:empty::after {
+    content: 'No description found';
+    text-align: center;
+    display: block;
+    font-size: 1.1rem;
+    margin-top: 30px;
+  }
 
   section.info .card .meta {
     display: flex;
@@ -147,6 +219,7 @@ export default {
   }
   section.info .card .meta a {
     display: inline;
+    word-wrap: break-word;
   }
 
   section.info .similar ul {
@@ -160,47 +233,11 @@ export default {
   }
   section.info .similar ul li p {
     margin: 10px 0;
-  }
-
-  @media screen and (min-width: 650px) {
-    section.info .card {
-      flex-direction: row;
-    }
-
-    section.info .card .details {
-      width: 60%;
-    }
-
-    section.info .card .meta {
-      width: 35%;
-      flex-direction: column;
-    }
-
-    section.info .similar ul {
-      flex-direction: row;
-    }
-
-    section.info .similar ul li {
-      margin: 0 10px;
-    }
-    section.info .similar ul li:first-child {
-      margin-left: 0;
-    }
-    section.info .similar ul li:last-child {
-      margin-right: 0;
-    }
-  }
-
-  @media screen and (min-width: 950px) {
-    section.info .card .details {
-      width: 75%;
-    }
-    section.info .card .meta {
-      flex-direction: column;
-      width: 22%;
-      margin-right: 0;
-      margin-left: auto;
-    }
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   section.info h2 {
@@ -224,8 +261,70 @@ export default {
     font-size: 1.15rem;
   }
 
-  @media screen and (min-width: 950px) {
+  section.info .not-found {
+    width: 100%;
+    text-align: center;
+  }
 
+  section.info .loading {
+    text-align: center;
+    width: 100%;
+  }
+  section.info .loading .loader {
+    display: inline-block;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #EE7321;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @media screen and (min-width: 650px) {
+    section.info .card {
+      flex-direction: row;
+    }
+
+    section.info .card .details {
+      width: 60%;
+    }
+
+    section.info .card .meta {
+      width: 35%;
+      flex-direction: column;
+    }
+
+    section.info .similar ul {
+      flex-direction: row;
+    }
+
+    section.info .similar ul li {
+      margin: 0 10px;
+      max-width: 50%;
+    }
+    section.info .similar ul li:first-child {
+      margin-left: 0;
+    }
+    section.info .similar ul li:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 950px) {
+    section.info .card .details {
+      width: 75%;
+    }
+    section.info .card .meta {
+      flex-direction: column;
+      width: 22%;
+      margin-right: 0;
+      margin-left: auto;
+    }
     section.info .card {
       width: 80%;
     }
