@@ -35,6 +35,10 @@ export default {
     padding-bottom: 40%;
   }
 
+  h3 {
+    opacity: 0.7;
+  }
+
   .divider {
     display: flex;
     position: absolute;

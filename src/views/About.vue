@@ -63,6 +63,7 @@ export default {
   }
   section.team .card {
     margin: 50px 15px 15px;
+    color: #6C7480;
   }
 
   @media screen and (min-width: 650px) {

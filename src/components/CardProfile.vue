@@ -45,6 +45,7 @@ export default {
     margin-top: 5px;
     font-size: 1.6rem;
     line-height: 1.2em;
+    color: #2F353E;
   }
 
   p {
