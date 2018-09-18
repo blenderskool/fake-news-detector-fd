@@ -9,6 +9,7 @@
           v-model="newsTitle"
           required
         />
+        <br>
         <btn>Check News</btn>
       </form>
     </hero>
@@ -17,7 +18,7 @@
       <card>
         <div class="loading" v-if="loading">
           <span class="loader" />
-          <div>Loading</div>
+          <div>Searching the news</div>
         </div>
         <template v-else>
           <div class="details" v-if="news.status !== 'unsure'">
@@ -179,16 +180,8 @@ export default {
 
 <style scoped>
 
-  input {
-    width: calc(75% - 160px);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
   button {
-    height: 44px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    margin-top: 8%;
   }
 
   section.info {
@@ -202,6 +195,9 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
+  }
+  section.info .card .details {
+    order: 1;
   }
   section.info .card .details p:empty::after {
     content: 'No description found';
@@ -272,8 +268,8 @@ export default {
   }
   section.info .loading .loader {
     display: inline-block;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #EE7321;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #EE7321;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -286,12 +282,32 @@ export default {
   }
 
   @media screen and (min-width: 650px) {
+
+    input {
+      width: calc(75% - 160px);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    button {
+      height: 44px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-top: 0;
+    }
+
+    br {
+      display: none;
+    }
+
+
     section.info .card {
       flex-direction: row;
     }
 
     section.info .card .details {
       width: 60%;
+      order: initial;
     }
 
     section.info .card .meta {
