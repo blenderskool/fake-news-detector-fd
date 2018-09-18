@@ -37,7 +37,7 @@
       </card>
     </section>
 
-    <section class="pattern final" v-show="false">
+    <section class="pattern final">
       <h2>Report fake news</h2>
       <h3>Help us in collecting false news</h3>
 
@@ -100,12 +100,19 @@ export default {
     margin: 15px;
 
     font-size: 1.13rem;
+    transition: all 0.2s ease;
+  }
+  section.cards .card:hover {
+    transform: scale(1.03);
   }
   section.cards .card .title {
     font-size: 1.45rem;
     color: #2F353E;
     font-weight: 700;
     margin-bottom: 15px;
+  }
+  section.cards .card p {
+    color: #6C7480;
   }
 
   @media screen and (min-width: 650px) {
