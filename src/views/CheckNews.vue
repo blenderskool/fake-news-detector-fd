@@ -60,6 +60,8 @@
       </card>
     </section>
 
+    <Footer />
+
   </div>
 </template>
 
@@ -71,6 +73,7 @@ import hero from '@/components/Hero'
 import btn from '@/components/Button'
 import card from '@/components/Card'
 import badge from '@/components/Badge'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'CheckNews',
@@ -79,7 +82,8 @@ export default {
     hero,
     btn,
     card,
-    badge
+    badge,
+    Footer
   },
   data() {
     return {

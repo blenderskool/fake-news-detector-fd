@@ -43,6 +43,9 @@
 
       <btn>Start Reporting</btn>
     </section>
+
+    <Footer />
+
   </div>
 </template>
 
@@ -51,6 +54,7 @@ import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import card from '@/components/Card'
 import btn from '@/components/Button'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'home',
@@ -58,7 +62,8 @@ export default {
     Header,
     hero,
     card,
-    btn
+    btn,
+    Footer
   },
   data() {
     return {

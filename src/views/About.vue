@@ -32,20 +32,24 @@
       <h3>Coming Soon</h3>
     </section>
 
+    <Footer />
+
   </div>
 </template>
 
 <script>
-import hero from '@/components/Hero'
 import Header from '@/components/Header'
+import hero from '@/components/Hero'
 import CardProfile from '@/components/CardProfile'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'about',
   components: {
     hero,
     Header,
-    'card-profile': CardProfile
+    'card-profile': CardProfile,
+    Footer
   },
   created() {
     document.title = 'About | News Detector'
