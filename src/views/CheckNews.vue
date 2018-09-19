@@ -14,7 +14,7 @@
       </form>
     </hero>
 
-    <section class="info">
+    <section class="info" ref="info">
       <card>
         <div class="loading" v-if="loading">
           <span class="loader" />
@@ -113,6 +113,14 @@ export default {
        * Prepare the loading state
        */
       this.loading = true;
+
+      /**
+       * Scroll the news card into the view
+       */
+      if (this.$refs.info)
+        this.$refs.info.scrollIntoView({
+          behavior: 'smooth'
+        });
 
       /**
        * API call for getting news status
