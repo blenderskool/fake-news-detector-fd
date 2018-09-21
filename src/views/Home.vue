@@ -81,7 +81,7 @@ export default {
     }
   },
   created() {
-    document.title = 'News Detector';
+    document.title = 'Defaux | News detector';
   }
 }
 </script>

@@ -112,7 +112,7 @@ export default {
       const title = this.$route.query.title;
 
       this.newsTitle = title;
-      document.title = `${title} | News Detector`;
+      document.title = `${title} | Defaux`;
       /**
        * Prepare the loading state
        */
@@ -142,7 +142,7 @@ export default {
         if (data.status === 'unsure') return;
 
         this.news.title = news.matchedTitle;
-        document.title = `${news.matchedTitle} | News Detector`;
+        document.title = `${news.matchedTitle} | Defaux`;
 
         this.news.snippet = news.snippet;
         this.news.percentage = news.percentage;

@@ -69,7 +69,7 @@ export default {
 
   @media screen and (min-width: 950px) {
     .hero {
-      padding: 8% 0 20%;
+      padding: 6% 0 20%;
     }
 
     .hero.less-spacing {

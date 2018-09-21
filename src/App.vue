@@ -111,7 +111,7 @@
 
   @media screen and (min-width: 950px) {
     .hero .logo {
-      margin-bottom: 8%;
+      margin-bottom: 10%;
     }
   }
 
