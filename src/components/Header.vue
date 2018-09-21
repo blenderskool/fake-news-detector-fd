@@ -2,7 +2,8 @@
   <header>
     <router-link to="/">
       <h1 class="logo">
-        News Detector
+        <img src="@/assets/logo.png">
+        Defaux
       </h1>
     </router-link>
     
@@ -25,6 +26,14 @@ export default {
   .logo {
     font-size: 2.3rem;
     color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 70px;
+    margin-right: 10px;
   }
 
   nav {
@@ -34,6 +43,10 @@ export default {
   @media screen and (min-width: 650px) {
     nav {
       display: block;
+    }
+
+    .logo img {
+      width: 80px;
     }
   }
 

@@ -3,7 +3,7 @@
     <hero>
       <Header />
       <h2>About</h2>
-      <h3>The backbone of News Detector</h3>
+      <h3>The backbone of Defaux</h3>
     </hero>
 
     <section class="team">
@@ -52,7 +52,7 @@ export default {
     Footer
   },
   created() {
-    document.title = 'About | News Detector'
+    document.title = 'About | Defaux'
   }
 }
 </script>

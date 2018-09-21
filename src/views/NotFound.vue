@@ -25,7 +25,7 @@ export default {
     Button
   },
   created() {
-    document.title = 'Page not found | News Detector';
+    document.title = 'Page not found | Defaux';
   }
 }
 </script>
