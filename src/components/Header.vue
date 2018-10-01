@@ -7,7 +7,7 @@
       </h1>
     </router-link>
     
-    <navigation />
+    <navigation v-if="!hideNav" />
   </header>
 </template>
 
@@ -16,6 +16,9 @@ import navigation from '@/components/Navigation'
 
 export default {
   name: 'Header',
+  props: {
+    hideNav: Boolean
+  },
   components: {
     navigation
   }
