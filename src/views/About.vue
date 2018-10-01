@@ -8,22 +8,12 @@
 
     <section class="team">
       <card-profile
-        title="Neel Kamath"
-        :image="require('../assets/neel.jpeg')"
+        v-for="contributor in contributors"
+        :key="contributor.name"
+        :title="contributor.name"
+        :image="require(`../assets/avatars/${contributor.avatar}`)"
       >
-        Worked on something
-      </card-profile>
-      <card-profile
-        title="Akash Hamirwasia"
-        :image="require('../assets/akash.jpg')"
-      >
-        Worked on something
-      </card-profile>
-      <card-profile
-        title="Siri R J"
-        :image="require('../assets/siri.jpeg')"
-      >
-        Worked on something
+        {{ contributor.role }}
       </card-profile>
     </section>
 
@@ -42,6 +32,7 @@ import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import CardProfile from '@/components/CardProfile'
 import Footer from '@/components/Footer'
+import contributors from '@/contributors.js'
 
 export default {
   name: 'about',
@@ -50,6 +41,11 @@ export default {
     Header,
     'card-profile': CardProfile,
     Footer
+  },
+  data() {
+    return {
+      contributors
+    }
   },
   created() {
     document.title = 'About | Defaux'
@@ -73,11 +69,11 @@ export default {
   @media screen and (min-width: 650px) {
     section.team { 
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
 
     section.team .card {
-      width: 33%;
+      width: 29%;
     }
 
   }
