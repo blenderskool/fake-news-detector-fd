@@ -44,7 +44,12 @@
             <h3>Found on</h3>
             <ul>
               <li v-for="(source, i) in news.sources" :key="i">
-                <a :href="source.link" v-if="source.link" target="_blank">
+                <a
+                  :href="source.link"
+                  rel="noreferrer"
+                  v-if="source.link"
+                  target="_blank"
+                >
                   {{ source.text }}
                 </a>
                 <span v-else>

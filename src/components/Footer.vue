@@ -1,10 +1,10 @@
 <template>
   <footer>
     <span>MIT Licensed</span>
-    <a href="https://github.com/blenderskool/fake-news-detector-fd" target="_blank">
+    <a href="https://github.com/blenderskool/fake-news-detector-fd" target="_blank" rel="noreferrer">
       Frontend code
     </a>
-    <a href="https://gitlab.com/neelkamath/fake-news-checker" target="_blank">
+    <a href="https://gitlab.com/neelkamath/fake-news-checker" target="_blank" rel="noreferrer">
       Backend code
     </a>
   </footer>
