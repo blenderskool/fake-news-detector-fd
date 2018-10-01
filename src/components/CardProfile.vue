@@ -1,6 +1,11 @@
 <template>
   <card>
-    <div class="image" :style='{backgroundImage: `url(${image})`}' />
+    <div
+      class="image"
+      :style='{backgroundImage: `url(${image})`}'
+      role="img"
+      :aria-label="title+' image'"
+    />
     <h3>{{ title }}</h3>
     <p>
       <slot />

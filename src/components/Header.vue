@@ -2,7 +2,7 @@
   <header>
     <router-link to="/">
       <h1 class="logo">
-        <img src="@/assets/logo.png">
+        <img alt="Defaux logo" src="@/assets/logo.png">
         Defaux
       </h1>
     </router-link>

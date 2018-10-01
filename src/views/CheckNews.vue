@@ -5,6 +5,7 @@
       <form @submit.prevent="checkNews">
         <input
           type="text"
+          aria-label="Enter news title"
           placeholder="Enter news title"
           v-model="newsTitle"
           required
