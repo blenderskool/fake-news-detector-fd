@@ -4,17 +4,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  created() {
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/sw.js')
-    }
-  }
-}
-</script>
-
-
 <style>
   * {
     box-sizing: border-box;
