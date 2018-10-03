@@ -26,4 +26,9 @@ export default {
   .logo {
     color: black !important;
   }
+
+  .offline .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 </style>
