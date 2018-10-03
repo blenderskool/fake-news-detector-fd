@@ -3,7 +3,7 @@
     <hero>
       <Header hideNav />
 
-      <h2>You are offline!</h2>
+      <h2>Network problem!</h2>
       <h3>Connect back to the internet and check more news</h3>
     </hero>
   </div>

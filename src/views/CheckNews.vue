@@ -172,8 +172,14 @@ export default {
       })
       .catch(err => {
         console.log(`Error: ${err}`);
-
         this.loading = false;
+
+        /**
+         * If there is a network error, then redirect to offline route
+         */
+        if (err.message = 'Network error') {
+          this.$router.replace('offline');
+        }
       });
 
     }
