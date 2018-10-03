@@ -6,9 +6,9 @@
       <h3>The backbone of Defaux</h3>
     </hero>
 
-    <section class="team">
+    <section class="people">
       <card-profile
-        v-for="contributor in contributors"
+        v-for="contributor in people"
         :key="contributor.name"
         :title="contributor.name"
         :image="require(`../assets/avatars/${contributor.avatar}`)"
@@ -19,7 +19,18 @@
 
     <section class="pattern final">
       <h2>Sources we used</h2>
-      <h3>Coming Soon</h3>
+      <h3>to build this amazing service</h3>
+      <div class="sources">
+        <a
+          v-for="source in sources"
+          :key="source.name"
+          :href="source.site"
+          :title="source.name"
+          target="_blank"
+        >
+          <img :src="source.logo" :alt="source.name">
+        </a>
+      </div>
     </section>
 
     <Footer />
@@ -44,7 +55,8 @@ export default {
   },
   data() {
     return {
-      contributors
+      people: contributors.people,
+      sources: contributors.sources
     }
   },
   created() {
@@ -55,31 +67,49 @@ export default {
 
 <style scoped>
 
-  section.team {
+  section.people {
     display: flex;
     flex-direction: column;
     top: -95px;
     padding: 0 20px;
   }
-  section.team .card {
+  section.people .card {
     margin: 50px 15px 15px;
     color: #6C7480;
   }
 
+  .sources {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+  }
+  .sources img {
+    /* max-width: 300px; */
+    max-height: 1.9rem;
+    margin: 15px;
+  }
+
   @media screen and (min-width: 650px) {
-    section.team { 
+    section.people { 
       flex-direction: row;
       flex-wrap: wrap;
     }
 
-    section.team .card {
+    section.people .card {
       width: 29%;
+    }
+
+    .sources {
+      flex-direction: row;
     }
 
   }
 
   @media screen and (min-width: 950px) {
-    section.team {
+    section.people {
       padding: 0 80px;
     }
 
