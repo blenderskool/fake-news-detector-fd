@@ -1,13 +1,15 @@
 <template>
   <div class="badge" :class="{
-    fake: type === 'satire',
+    fake: type === 'fake',
     real: type === 'real',
-    warn: type === 'warn'
+    warn: type === 'satire'
   }">
     <h3>{{ type }}</h3>
     <div class="level">
       <span class="fill" :style="{top: `${90-percentage}%` }" />
-      <span class="score">
+      <span class="score"
+        :style="{color: percentage > 45 ? '#fff' : '#000'}"
+      >
         {{ percentage }}%
         <div style="font-size: 0.8rem">Match</div>
       </span>
