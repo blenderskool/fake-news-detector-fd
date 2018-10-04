@@ -27,11 +27,13 @@
             <p>{{ news.snippet }}</p>
 
             <div class="similar" v-if="related.length">
-              <h2>Similar {{ news.status }} news</h2>
+              <h2>Similar news</h2>
 
               <ul>
                 <li v-for="news in related" :key="news.matchedTitle">
-                  <h3>{{ news.matchedTitle }}</h3>
+                  <router-link :to="{path: '/news', query: { title: news.matchedTitle }}">
+                    <h3>{{ news.matchedTitle }}</h3>
+                  </router-link>
                   <p>{{ news.snippet }}</p>
                 </li>
               </ul>
@@ -167,7 +169,7 @@ export default {
         /**
          * Use the first 2 related articles
          */
-        this.related = data.relatedNews.slice(0, 2);
+        this.related = data.relatedNews.slice(-2);
 
       })
       .catch(err => {
@@ -220,9 +222,6 @@ export default {
     display: flex;
     flex-direction: column-reverse;
   }
-  section.info .card .details {
-    order: 1;
-  }
   section.info .card .details p:empty::after {
     content: 'No description found';
     text-align: center;
@@ -236,6 +235,7 @@ export default {
     margin-right: auto;
     margin-left: 0;
     flex-direction: column;
+    width: 100%;
   }
   section.info .card .meta a {
     display: inline;
@@ -248,8 +248,16 @@ export default {
     display: flex;
     flex-direction: column;
   }
+  section.info .similar ul li a {
+    padding-top: 0;
+  }
   section.info .similar ul li h3 {
     margin-top: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
   section.info .similar ul li p {
     margin: 10px 0;
@@ -330,7 +338,7 @@ export default {
     }
 
     section.info .card .details {
-      width: 60%;
+      width: 65%;
       order: initial;
     }
 
