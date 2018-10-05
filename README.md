@@ -1,6 +1,6 @@
-# Fake News app
+# Defaux news checker app
 
-A fake news app which allows you to check whether news is real or fake by entering its title. It makes use of multiple sources to gather fake news, including those which **seem real**, as satirical articles are usually the hardest to differentiate between. This web app comes with an easy to use interface, that makes checking the trustworthiness of news really easy.
+A news checker app which allows you to check whether news is real or fake by entering its title. It makes use of multiple sources to gather fake news, including those which **seem real**, as satirical articles are usually the hardest to differentiate between. This web app comes with an easy to use interface, that makes checking the trustworthiness of news really easy.
 
 # Installation
 
