@@ -68,6 +68,8 @@
       </card>
     </section>
 
+    <report-cta />
+
     <Footer />
 
   </div>
@@ -81,6 +83,7 @@ import hero from '@/components/Hero'
 import btn from '@/components/Button'
 import card from '@/components/Card'
 import badge from '@/components/Badge'
+import ReportCta from '@/components/ReportCta'
 import Footer from '@/components/Footer'
 
 export default {
@@ -91,6 +94,7 @@ export default {
     btn,
     card,
     badge,
+    'report-cta': ReportCta,
     Footer
   },
   data() {
@@ -175,13 +179,6 @@ export default {
       .catch(err => {
         console.log(`Error: ${err}`);
         this.loading = false;
-
-        /**
-         * If there is a network error, then redirect to offline route
-         */
-        if (err.message = 'Network error') {
-          this.$router.replace('offline');
-        }
       });
 
     }
