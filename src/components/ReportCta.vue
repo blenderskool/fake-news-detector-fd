@@ -3,7 +3,7 @@
     <h2>Report fake news</h2>
     <h3>Help us in collecting false news</h3>
 
-    <btn>Start Reporting</btn>
+    <btn @click.native="$router.push('/report-news')">Start Reporting</btn>
   </section>
 </template>
 
