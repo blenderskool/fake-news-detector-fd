@@ -1,10 +1,10 @@
 <template>
   <div class="badge" :class="{
     fake: type === 'fake',
-    real: type === 'real',
+    real: type === 'real' || type === 'fauxSatire',
     warn: type === 'satire'
   }">
-    <h3>{{ type }}</h3>
+    <h3>{{ type.replace(/([A-Z])/g, ' $1') }}</h3>
     <div class="level">
       <span class="fill" :style="{top: `${90-percentage}%` }" />
       <span class="score"
@@ -33,7 +33,7 @@ export default {
 
   .badge .level {
     height: 85px;
-    width: 85px;
+    min-width: 85px;
     border-radius: 100%;
     margin-left: auto;
     position: relative;
