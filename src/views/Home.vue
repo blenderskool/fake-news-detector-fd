@@ -38,12 +38,7 @@
       </card>
     </section>
 
-    <section class="pattern final">
-      <h2>Report fake news</h2>
-      <h3>Help us in collecting false news</h3>
-
-      <btn>Start Reporting</btn>
-    </section>
+    <report-cta />
 
     <Footer />
 
@@ -55,6 +50,7 @@ import Header from '@/components/Header'
 import hero from '@/components/Hero'
 import card from '@/components/Card'
 import btn from '@/components/Button'
+import ReportCta from '@/components/ReportCta'
 import Footer from '@/components/Footer'
 
 export default {
@@ -64,6 +60,7 @@ export default {
     hero,
     card,
     btn,
+    'report-cta': ReportCta,
     Footer
   },
   data() {
