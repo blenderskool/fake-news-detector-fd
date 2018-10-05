@@ -16,8 +16,15 @@
         </btn>
       </form>
     </hero>
+
+    <section class="description">
+      <h3>Our goal is to keep you away from fake and misleading news</h3>
+      <span>by making Defaux accessible through multiple platforms</span>
+      <br />
+      <img src="https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_HOR.png">
+    </section>
   
-    <section class="cards">
+    <section class="cards" v-show="false">
       <card>
         <h2 class="title">
           Trending fake news
@@ -87,6 +94,24 @@ export default {
 <style scoped>
   .check-news {
     margin-top: 8%;
+  }
+
+  .description {
+    text-align: center;
+    padding: 5rem 2rem;
+    font-size: 1.3rem;
+    color: #6C7480;
+  }
+  .description h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2F353E;
+  }
+  .description img {
+    width: 250px;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 
   section.cards {
