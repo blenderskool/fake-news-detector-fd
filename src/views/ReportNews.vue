@@ -33,6 +33,13 @@
       </p>
     </section>
 
+    <section class="pattern final">
+      <h2>Start checking fake news</h2>
+      <h3>Stay away from misleading articles</h3>
+
+      <btn @click.native="$router.push('/')">Check news</btn>
+    </section>
+
     <Footer />
 
   </div>
