@@ -3,17 +3,17 @@ export default {
     {
       name: 'Neel Kamath',
       avatar: 'neel.jpeg',
-      role: 'Backend, HTTP API'
+      role: 'HTTP API with database'
     },
     {
       name: 'Akash Hamirwasia',
       avatar: 'akash.jpg',
-      role: 'Google assistant action & PWA'
+      role: 'PWA & Google assistant action'
     },
     {
       name: 'Siri R J',
       avatar: 'siri.jpeg',
-      role: 'Project Branding'
+      role: 'UI design, testing, ideating'
     }
   ],
   sources: [
@@ -21,6 +21,11 @@ export default {
       name: 'The Onion',
       logo: 'https://upload.wikimedia.org/wikipedia/en/8/8d/The_Onion.svg',
       site: 'https://www.theonion.com/'
+    },
+    {
+      name: 'Clickhole',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Clickhole_Logo.svg/750px-Clickhole_Logo.svg.png',
+      site: 'https://www.clickhole.com'
     },
     {
       name: 'New York Times',
