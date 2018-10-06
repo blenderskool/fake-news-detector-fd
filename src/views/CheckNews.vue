@@ -21,7 +21,7 @@
           <span class="loader" />
           <div>Searching the news</div>
         </div>
-        <template v-else>
+        <template v-if="news.percentage > 0 && !loading">
           <div class="details" v-if="news.status !== 'unsure'">
             <h2>{{ news.title }}</h2>
             <p>{{ news.snippet }}</p>
@@ -44,7 +44,7 @@
             <badge :type="news.status" :percentage="news.percentage" />
 
             <h3>Found on</h3>
-            <ul>
+            <ul v-if="news.sources && news.sources.length > 0 && !news.isReported">
               <li v-for="(source, i) in news.sources" :key="i">
                 <a
                   :href="source.link"
@@ -59,12 +59,21 @@
                 </span>
               </li>
             </ul>
+            <ul v-else-if="news.isReported">
+              <li>
+                Source unverifiable
+              </li>
+            </ul>
           </div>
           <div class="not-found" v-else>
             <h2>News not found</h2>
             <p>Try out some other news</p>
           </div>
         </template>
+        <div class="not-found" v-else-if="!loading">
+          <h2>News not found</h2>
+          <p>Try out some other news</p>
+        </div>
       </card>
     </section>
 
@@ -105,7 +114,8 @@ export default {
         status: 'fake',
         snippet: '',
         sources: [],
-        percentage: 0
+        percentage: 0,
+        isReported: false
       },
       related: [],
       loading: true
@@ -173,7 +183,10 @@ export default {
         /**
          * Use the first 2 related articles
          */
-        this.related = data.relatedNews.slice(-2);
+        if (data.relatedNews)
+          this.related = data.relatedNews.slice(-2);
+
+        this.news.isReported = data.isReported;
 
       })
       .catch(err => {
