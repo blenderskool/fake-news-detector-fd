@@ -8,12 +8,7 @@ export default {
     {
       name: 'Akash Hamirwasia',
       avatar: 'akash.jpg',
-      role: 'PWA & Google assistant action'
-    },
-    {
-      name: 'Siri R J',
-      avatar: 'siri.jpeg',
-      role: 'UI design, testing, ideating'
+      role: 'PWA & Google assistant action, UI design'
     }
   ],
   sources: [
