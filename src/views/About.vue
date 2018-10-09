@@ -72,6 +72,7 @@ export default {
     flex-direction: column;
     top: -95px;
     padding: 0 20px;
+    justify-content: center;
   }
   section.people .card {
     margin: 50px 15px 15px;
