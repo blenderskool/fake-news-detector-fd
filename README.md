@@ -4,7 +4,7 @@ A news checker app which allows you to check whether news is real or fake by ent
 
 This repository is for the frontend progressive web app which makes use of our backend's HTTP API to check news status. This web app comes with an easy to use interface, that makes checking the trustworthiness of news really easy.
 
-**Backend repository can be found on https://gitlab.com/neelkamath/fake-news-checker**
+**Backend repository can be found on https://gitlab.com/neelkamath/news-checker**
 
 ## Installation
 
