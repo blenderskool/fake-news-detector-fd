@@ -1,24 +1,28 @@
 # Defaux news checker app
 
-A news checker app which allows you to check whether news is real or fake by entering its title. It makes use of multiple sources to gather fake news, including those which **seem real**, as satirical articles are usually the hardest to differentiate between. This web app comes with an easy to use interface, that makes checking the trustworthiness of news really easy.
+A news checker app which allows you to check whether news is real or fake by entering its title. It makes use of multiple sources to gather fake news, including those which **seem real**, as satirical articles are usually the hardest to differentiate between.
 
-# Installation
+This repository is for the frontend progressive web app which makes use of our backend's HTTP API to check news status. This web app comes with an easy to use interface, that makes checking the trustworthiness of news really easy.
 
-## Prerequisites
+**Backend repository can be found on https://gitlab.com/neelkamath/fake-news-checker**
+
+## Installation
+
+### Prerequisites
 
 - [node.js](https://nodejs.org/en/download/)
 
-## Installing
+### Installing
 
 1. `git clone https://github.com/blenderskool/fake-news-detector-fd.git`
 1. `cd fake-news-detector-fd`
 1. `npm install`
 
-# Usage
+## Usage
 
 - (For development) Compile and hot-reload: `npm run serve`
 - (For production) Compile and minify: `npm run build`
 
-# License
+## License
 
 This project is under the [MIT License](LICENSE).
