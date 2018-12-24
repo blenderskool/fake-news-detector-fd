@@ -4,7 +4,7 @@
     <a href="https://github.com/blenderskool/fake-news-detector-fd" target="_blank" rel="noreferrer">
       Frontend code
     </a>
-    <a href="https://gitlab.com/neelkamath/fake-news-checker" target="_blank" rel="noreferrer">
+    <a href="https://gitlab.com/neelkamath/news-checker" target="_blank" rel="noreferrer">
       Backend code
     </a>
   </footer>
